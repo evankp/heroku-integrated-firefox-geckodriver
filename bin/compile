@@ -13,7 +13,6 @@ CACHE_DIR=$2
 ENV_DIR=$3
 
 LP_DIR=`cd $(dirname $0); cd ..; pwd`
-FONTS_DIR=`cd "$LP_DIR/fonts"; pwd`
 
 function error() {
   echo " !     $*" >&2
@@ -53,7 +52,7 @@ case "$STACK" in
   "cedar-14")	
     PACKAGES="libxss1"	
     ;;	
-  "heroku-16" | "heroku-18")	
+  "heroku-16" | "heroku-18" | "heroku-20")	
     PACKAGES="	
       libappindicator1	
       libasound2	
@@ -81,7 +80,7 @@ case "$STACK" in
     "	
     ;;
   *)	
-    error "Heroku stack must be 'cedar-14', 'heroku-16', or 'heroku-18'"	
+    error "Heroku stack must be 'cedar-14', 'heroku-16', or 'heroku-18' or 'heroku-20'"	
 esac
 
 if [ ! -f $CACHE_DIR/PURGED_CACHE_V1 ]; then
